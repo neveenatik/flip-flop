@@ -119,9 +119,9 @@ function maxStockProfit(prices) {
     return -1;
   } 
   const bestBuyPrice = Math.min(...prices);
+  const buyIndex = prices.indexOf(bestBuyPrice);
   const bestSellPrice = Math.max(...prices);
   let sellIndex = prices.indexOf(bestSellPrice);
-  const buyIndex = prices.indexOf(bestBuyPrice);
   while(sellIndex < buyIndex && prices.indexOf(bestSellPrice, sellIndex) < 0) {
     sellIndex = prices.indexOf(bestSellPrice, bestSellPrice);
   }
