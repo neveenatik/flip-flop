@@ -118,16 +118,16 @@ function maxStockProfit(prices) {
   if (prices.length === 0) {
     return -1;
   } 
-  const bestBuyPrice = Math.min(...prices);
-  const buyIndex = prices.indexOf(bestBuyPrice);
-  const bestSellPrice = Math.max(...prices);
-  let sellIndex = prices.indexOf(bestSellPrice);
-  while(sellIndex < buyIndex && prices.indexOf(bestSellPrice, sellIndex) < 0) {
-    sellIndex = prices.indexOf(bestSellPrice, bestSellPrice);
+
+  let maxProfit = 0;
+
+  for(let i = 0; i <= prices.length -1; i++) {
+    for(let j =  i + 1 ; j < prices.length - 1; j++)
+    if (prices[j] > prices[i] && (prices[j] - prices[i]) > maxProfit) {
+      maxProfit = prices[j] - prices[i];
+    }
   }
 
-  if(buyIndex <= sellIndex) {
-    return bestSellPrice - bestBuyPrice;
-  }
-  return 0;
+  return maxProfit;
 }
+console.log(maxStockProfit([7,1,5,3,6,4]));
