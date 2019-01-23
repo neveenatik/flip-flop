@@ -111,9 +111,9 @@ function pyramid(n) {
 
 function maxStockProfit(prices) {
   if(!prices) {
-    console.log("Please provide prices array")
+    return NaN;
   }
-  if (prices.length === 0) {
+  if (prices.length < 2) {
     return -1;
   } 
 
@@ -128,3 +128,4 @@ function maxStockProfit(prices) {
 
   return maxProfit;
 }
+console.log(maxStockProfit([11]))
