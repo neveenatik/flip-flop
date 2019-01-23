@@ -106,10 +106,8 @@ function pyramid(n) {
   }
 }
 
-/* excercise 9 
+// excercise 9 
 
-this function assumes that there is profit of the day only if 
-the stock's best buy price happened before the best sell price */
 
 function maxStockProfit(prices) {
   if(!prices) {
@@ -130,4 +128,3 @@ function maxStockProfit(prices) {
 
   return maxProfit;
 }
-console.log(maxStockProfit([7,1,5,3,6,4]));
