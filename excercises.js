@@ -3,6 +3,9 @@
 //excercise 1
 
 function showNumbers (limit) {
+  if(!limit || typeof limit !== "number"){
+    throw "Error: invalid entery expected number";
+  }
   for( let i = 0; i <= limit; i ++) {
     console.log(i, ((i % 2 !== 0) ? "ODD" : "EVEN"));
   }
@@ -11,6 +14,9 @@ function showNumbers (limit) {
 //excercise 2
 
 function countTruthy(arr) {
+  if(!arr || arr.length === 0 || typeof arr !== "object"){
+    throw "Error: invalid entery expected a valid array";
+  }
   let counter = 0;
   arr.forEach(value => value && counter++);
   return counter;
@@ -19,6 +25,9 @@ function countTruthy(arr) {
 //excercise 3
 
 function showProperties(obj) {
+  if(!obj || Object.keys(obj).length === 0 || typeof obj !== "object") {
+    throw "Error: invalid entery expected a valid object";
+  }
   for (const key in obj) {
     if (typeof obj[key] === "string") {
        console.log(key, obj[key]);
@@ -29,6 +38,9 @@ function showProperties(obj) {
 //excercise 4
 
 function sum(limit) {
+  if(!limit || typeof limit !== "number"){
+    throw "Error: invalid entery expected number";
+  }
   let total = 0;
   for(let i = 0; i <= limit; i++) {
     if((i % 3 === 0) || (i % 5 === 0)) {
@@ -41,6 +53,9 @@ function sum(limit) {
 //excercise 5
 
 function calculateGrade(marks) {
+  if(!arr || arr.length === 0 || typeof arr !== "object"){
+    throw "Error: invalid entery expected a valid array";
+  }
   const total = marks.reduce((sum,mark) => sum + mark,0);
   const avr = total / marks.length;
   let grade = '';
@@ -64,6 +79,9 @@ function calculateGrade(marks) {
 //excercise 6
 
 function showPrimes(limit) {
+  if(!limit || typeof limit !== "number"){
+    throw "Error: invalid entery expected number";
+  }
   // lable to break when number checked as not prime
   nextPrime: 
   for (let num = 2; num <= limit; num++) { 
@@ -85,10 +103,10 @@ function showPrimes(limit) {
 //excercise 7
 
 function showStars(rows) {
-  if (rows < 0) {
-    return "Error: There are no negative rows!";
+  if (!rows || typeof rows !== "number" || rows < 0) {
+    throw "Error: invalid entry expected a positive number!";
   }
-  for (let i = 1; i < rows; i++) {
+  for (let i = 1; i <= rows; i++) {
     console.log("*".repeat(i));
   }
 }
@@ -96,8 +114,8 @@ function showStars(rows) {
 //excercise 8
 
 function pyramid(n) {
-  if (n < 0) {
-    return "Error: Sorry only making pyramid, please choose positive number!";
+  if (!n || typeof n !== number || n < 0) {
+    throw "Error: Sorry only making pyramid, please choose positive number!";
   }
   for(let i = 1; i <= n; i++) {
     const hashes = "#".repeat((i * 2) -1);
@@ -110,7 +128,7 @@ function pyramid(n) {
 
 
 function maxStockProfit(prices) {
-  if(!prices) {
+  if(!prices || typeof prices !== "object") {
     return NaN;
   }
   if (prices.length < 2) {
@@ -128,4 +146,3 @@ function maxStockProfit(prices) {
 
   return maxProfit;
 }
-console.log(maxStockProfit([11]))
