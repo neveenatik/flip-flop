@@ -1,29 +1,178 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  height: 100vh;
+}
+
 .container {
-  padding: 20px 50px;
+  padding: 50px 50px;
   max-width: 1024px;
-  margin: auto;
+  background-size: cover;
+  margin: 10px auto;
   box-sizing: border-box;
+}
+
+.level-1 {
+  background-image: url("https://mobilegamegraphics.com/wp-content/uploads/2015/06/Untitled-1.jpg");
+  background-size: cover;
+}
+
+.level-2 {
+  background-image: url("https://mobilegamegraphics.com/wp-content/uploads/2015/06/Untitled-3.jpg");
+  background-size: cover;
+}
+
+.level-3 {
+  background-image: url("https://mobilegamegraphics.com/wp-content/uploads/2015/06/Untitled-2.jpg");
+  background-size: cover;
 }
 
 .cards-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  /* text-align: center; */
 }
 
 .card {
-  height: 150px;
+  height: 180px;
   width: 15%;
   min-width: 90px;
   background-color: #b3afaf;
   border: 1px solid #8a8787;
+  box-shadow: 1px 2px rgba(255, 255, 255, 0.8);
   border-radius: 3px;
   margin-right: 10px;
   margin-bottom: 10px;
 }
 
+.card:hover {
+  cursor: pointer;
+}
+
+.flipped {
+  height: 180px;
+  width: 15%;
+  min-width: 90px;
+  border: 1px solid #8a8787;
+  box-shadow: 1px 2px rgba(255, 255, 255, 0.8);
+  border-radius: 3px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  cursor: default;
+	animation-name: flipInY;
+	-webkit-backface-visibility: visible !important;
+	backface-visibility: visible !important;
+	animation-duration: .75s;
+}
+
 .controls {
+  position: relative;
+  top: -30px;
   text-align: center;
+  color: white;
+  text-shadow: 1px 1px #b3afaf;
   vertical-align: middle;
+}
+
+.btn_controle {
+  padding: 5px;
+  width: 80px;
+  font-size: 12px;
+  margin-right: 5px;
+  background-color: orange;
+  cursor: pointer;
+}
+
+.btn_controle:disabled {
+  cursor: not-allowed;
+}
+
+.match {
+  height: 180px;
+  width: 15%;
+  min-width: 90px;
+  border: 1px solid #8a8787;
+  box-shadow: 1px 2px rgba(255, 255, 255, 0.8);
+  border-radius: 3px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  background-color: attr(data-color);
+}
+
+#results {
+  position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background: rgba(0, 0, 0, 0.7);
+	transition: opacity 500ms;
+	visibility: hidden;
+	opacity: 0;
+}
+
+.show {
+	visibility: visible !important;
+	opacity: 1 !important;
+}
+
+.popup {
+	margin: 70px auto;
+	padding: 20px;
+	background: #ffffff;
+	border-radius: 5px;
+	width: 85%;
+	position: relative;
+	transition: all 5s ease-in-out;
+}
+
+.popup .close {
+	position: absolute;
+	top: 20px;
+	right: 30px;
+	transition: all 200ms;
+	font-size: 30px;
+	font-weight: bold;
+	text-decoration: none;
+	color: #333;
+}
+
+.popup .close:hover {
+	color: #E5F720;
+}
+
+.popup .content-1,
+.content-2 {
+	max-height: 30%;
+	overflow: auto;
+	text-align: center;
+}
+
+@keyframes flipInY {
+	from {
+		transform: perspective(400px) rotate3d(0, 1, 0, 90deg);
+		animation-timing-function: ease-in;
+		opacity: 0;
+	}
+
+	40% {
+		transform: perspective(400px) rotate3d(0, 1, 0, -20deg);
+		animation-timing-function: ease-in;
+	}
+
+	60% {
+		transform: perspective(400px) rotate3d(0, 1, 0, 10deg);
+		opacity: 1;
+	}
+
+	80% {
+		transform: perspective(400px) rotate3d(0, 1, 0, -5deg);
+	}
+
+	to {
+		transform: perspective(400px);
+	}
 }

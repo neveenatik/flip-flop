@@ -9,24 +9,27 @@
     <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
     <script src="main.js" defer></script>
   </head>
-  <body>
+  <body class="level-1">
     <main>
       <div class="container">
-        <div class="cards-container" id="timer">
-          <div class="card" ></div>
-          <div class="card" ></div>
-          <div class="card" ></div>
-          <div class="card" ></div>
-          <div class="card" ></div>
-          <div class="card" ></div>
-          <div class="card" ></div>
-          <div class="card" ></div>
-          <div class="card" ></div>
-          <div class="card" ></div>
-        </div>
         <div class="controls">
+          <button class="btn_controle" id="reset">Reset</button>
           <p><span id="minutes">00</span> : <span id="seconds">00</span></p>
-          <button id="reset">Reset</button>
+        </div>
+        <div class="cards-container" id="timer"></div>
+        <div id="results">
+          <div class="popup">
+            <div class="content-1">
+              Congratulations you won!
+            </div>
+            <div class="content-2">
+              <p>You made <span id="clicks"> </span> moves </p>
+              <p>in <span id="time"> </span> </p>
+            </div>
+            <div class="controlers">
+              <button class="btn_controle" id="next">Next Level</button>
+            </div>
+          </div>
         </div>
       </div>
     </main>
