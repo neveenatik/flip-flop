@@ -14,7 +14,7 @@ function showNumbers (limit) {
 //excercise 2
 
 function countTruthy(arr) {
-  if(!arr || arr.length === 0 || typeof arr !== "object"){
+  if(!Array.isArray(arr)){
     throw "Error: invalid entery expected a valid array";
   }
   let counter = 0;
@@ -25,7 +25,7 @@ function countTruthy(arr) {
 //excercise 3
 
 function showProperties(obj) {
-  if(!obj || Object.keys(obj).length === 0 || typeof obj !== "object") {
+  if(typeof obj !== "object" || Array.isArray(obj) || obj === null) {
     throw "Error: invalid entery expected a valid object";
   }
   for (const key in obj) {
@@ -53,7 +53,7 @@ function sum(limit) {
 //excercise 5
 
 function calculateGrade(marks) {
-  if(!arr || arr.length === 0 || typeof arr !== "object"){
+  if(!marks || Array.isArray(marks)){
     throw "Error: invalid entery expected a valid array";
   }
   const total = marks.reduce((sum,mark) => sum + mark,0);
@@ -83,20 +83,18 @@ function showPrimes(limit) {
     throw "Error: invalid entery expected number";
   }
   // lable to break when number checked as not prime
-  nextPrime: 
   for (let num = 2; num <= limit; num++) { 
-    /* num starts at 2 because there is no prime number smaller than 2
-    divisor starts at 2 because all numbers are divisible by 1
-    when num is 2 the second for loop doesn't run and the num is logged becuase 2 is the first prime number*/
+    /* num starts at first prime number, divisor starts at first divisor
+    when num is 2 the second for loop doesn't run  and num is logged*/
+    let divisors = [];
     for (let divisor = 2; divisor < num; divisor++) {
-      // when divisor is smaller than num look for a divisor..
       if (num % divisor === 0) {
-        /* if a divisible is found in this range 2 to < num
-        then it is not a prime, go to next num to save time */
-        continue nextPrime; 
+        divisors.push(divisor);
       }
     }
-    console.log(num); // a prime, log it
+    if(divisors.length === 0) {
+      console.log(num); // a prime, log it
+    }
   }
 }
 
@@ -137,8 +135,7 @@ function maxStockProfit(prices) {
 
   let maxProfit = 0;
 
-  for(let i = 0; i <= prices.length -1; i++) {
-    for(let j =  i + 1 ; j <= prices.length - 1; j++)
+  for (let i = 0; i <= prices.length -1; i++) {
     if (prices[j] > prices[i] && (prices[j] - prices[i]) > maxProfit) {
       maxProfit = prices[j] - prices[i];
     }
