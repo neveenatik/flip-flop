@@ -1,18 +1,10 @@
-* {
-  margin: 0;
-  padding: 0;
-}
-
 body {
   height: 100vh;
 }
-
 .container {
-  padding: 50px 50px;
+  padding: 20px 50px;
   max-width: 1024px;
-  background-size: cover;
-  margin: 10px auto;
-  box-sizing: border-box;
+  margin: 0 auto;
 }
 
 .level-1 {
@@ -30,76 +22,85 @@ body {
   background-size: cover;
 }
 
+.level-4 {
+  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSMnjqRRjDcDGERUusi9chHdbYRmOw42jXzcsm8j_Iw7yIVlTiu");
+  background-size: cover;
+}
+
+.level-5 {
+  background-image: url("https://chupacdn.s3.amazonaws.com/catalog/product/cache/5/thumbnail/1280x/17f82f742ffe127f42dca9de82fb58b1/6/-/6-vector-game-backgrounds-8003_imgs_8003_4.png");
+  background-size: cover;
+}
+
 .cards-container {
+  padding: 20px;
+  height: 80vh;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  /* justify-content: flex-start; */
+  white-space: normal;
 }
 
 .card {
-  height: 180px;
-  width: 15%;
-  min-width: 90px;
+  width: 22%;
+  margin: 0 auto 10px auto;
   background-color: #b3afaf;
-  border: 1px solid #8a8787;
-  box-shadow: 1px 2px rgba(255, 255, 255, 0.8);
+  box-shadow: 0px 0px 10px rgba(59, 59, 58, 0.8);
   border-radius: 3px;
-  margin-right: 10px;
-  margin-bottom: 10px;
 }
 
 .card:hover {
   cursor: pointer;
+  box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.8);
+  transform: scale(1.01);
 }
 
 .flipped {
-  height: 180px;
-  width: 15%;
-  min-width: 90px;
-  border: 1px solid #8a8787;
-  box-shadow: 1px 2px rgba(255, 255, 255, 0.8);
-  border-radius: 3px;
-  margin-right: 10px;
-  margin-bottom: 10px;
+  width: 22%;
+  margin: 0 auto 10px auto;
+  box-shadow: 0px 0px 10px rgba(59, 59, 58, 0.8);
+  border-radius: 5px;
   cursor: default;
 	animation-name: flipInY;
-	-webkit-backface-visibility: visible !important;
-	backface-visibility: visible !important;
 	animation-duration: .75s;
 }
 
+.match {
+  width: 22%;
+  border-radius: 3px;
+  margin: 0 auto 10px auto;
+  background-color: attr(data-color);
+  pointer-events: none;
+}
+
 .controls {
-  position: relative;
-  top: -30px;
-  text-align: center;
+  text-align: left;
+  position: fixed;
+  bottom: 0;
+  padding: 0;
+  list-style: none;
+  width: 100%;
+}
+
+.controls li {
+  display: inline-block;
+  width: 30%;
   color: white;
-  text-shadow: 1px 1px #b3afaf;
-  vertical-align: middle;
+  font-family: "Comic Sans MS", cursive, sans-serif;
 }
 
 .btn_controle {
-  padding: 5px;
-  width: 80px;
-  font-size: 12px;
-  margin-right: 5px;
+  padding: 5px 20px;
+  width: fit-content;
+  font-size: 14px;
   background-color: orange;
+  border-color: orange;
+  border-radius: 5px;
   cursor: pointer;
 }
 
-.btn_controle:disabled {
-  cursor: not-allowed;
-}
-
-.match {
-  height: 180px;
-  width: 15%;
-  min-width: 90px;
-  border: 1px solid #8a8787;
-  box-shadow: 1px 2px rgba(255, 255, 255, 0.8);
-  border-radius: 3px;
-  margin-right: 10px;
-  margin-bottom: 10px;
-  background-color: attr(data-color);
+.btn_controle:hover {
+  border: solid 1px rgba(255, 255, 255, 0.8);
 }
 
 #results {
@@ -107,7 +108,7 @@ body {
 	top: 0;
 	bottom: 0;
 	left: 0;
-	right: 0;
+  right: 0;
 	background: rgba(0, 0, 0, 0.7);
 	transition: opacity 500ms;
 	visibility: hidden;
@@ -120,35 +121,27 @@ body {
 }
 
 .popup {
-	margin: 70px auto;
-	padding: 20px;
+  margin: 70px auto;
+	padding: 20vh 0;
 	background: #ffffff;
 	border-radius: 5px;
-	width: 85%;
+	width: 70%;
 	position: relative;
-	transition: all 5s ease-in-out;
-}
-
-.popup .close {
-	position: absolute;
-	top: 20px;
-	right: 30px;
-	transition: all 200ms;
-	font-size: 30px;
-	font-weight: bold;
-	text-decoration: none;
-	color: #333;
-}
-
-.popup .close:hover {
-	color: #E5F720;
+  font-size: 24px;
+  font-weight: bold;
+	transition: all 3s ease-in-out;
 }
 
 .popup .content-1,
 .content-2 {
-	max-height: 30%;
-	overflow: auto;
+	min-height: 60%;
+	overflow: hidden;
 	text-align: center;
+}
+
+.controlers {
+  width: fit-content;
+  margin: auto;
 }
 
 @keyframes flipInY {
