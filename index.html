@@ -1,69 +1,39 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Javascript basics</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- <link rel="stylesheet" type="text/css" media="screen" href="main.css" /> -->
-  <!-- <script src="main.js"></script> -->
-</head>
-<body>
-  <h1>Hello world</h1>
-  <script>
-    "use strict";
-
-    // function fizzBuzz(input) {
-    //   console.log(input);
-
-    //   // return (typeof input !== "number") ? "Not a number"
-    //   // : (input % 15 === 0) ? "FizzBuzz"
-    //   // : (input % 5 === 0) ? "Buzz"
-    //   // : (input % 3 === 0) ? "Fizz" : "input";
-
-    //   if (typeof input !== 'number') {
-    //     return "Not a number";
-    //   }
-      
-    //   if (input % 15 === 0){
-    //     return "FizzBuzz";
-    //   } 
-      
-    //   if (input % 5 === 0){
-    //     return "Buzz";
-    //   }
-       
-    //   if (input % 3 === 0) {
-    //     return "Fizz";
-    //   }
-    // }
-    // const output = fizzBuzz(false);
-    // console.log(output);
-
-
-    function checkSpeed(speed) {
-    const speedLimit = 70;
-    const pointValue = 5;
-    // 70-75 "ok"
-    let message = "ok";
-
-    // over speed count points
-    // if (speed >= speedLimit + pointValue) {
-    // 75-80 "1 points"
-    // 80-85 "2 points"
-     let points = Math.floor((speed - speedLimit)/ pointValue);
-      if (points > 0 && points < 12) {
-        message = points + " points";
-      } else if(points >= 12 ) {
-      // over 12 points : "lose license"
-        message = "lose license";
-      }
-    // } 
-
-    return message;
-    }
-    // console.log(checkSpeed(150));
-  </script>
-    <script src="excercises.js"></script>
-</body>
-</html>
+  <!DOCTYPE html>
+  <html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Flip Flop</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" href="./assets/card-exchange.png">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="normalize.css" />
+    <script src="main.js" defer></script>
+  </head>
+  <body class="level-1">
+    <main>
+      <div class="container">
+        <div class="cards-container" id="timer"></div>
+        <ul class="controls">
+          <li><a role="button" class="btn_controle" id="reset">Reset</a></li>
+          <li><span id="minutes">00</span> : <span id="seconds">00</span></li>
+          <li>clicks: <span id="click-count"></span></li>
+        </ul>
+        <div id="results">
+          <div class="popup">
+            <div class="content-1">
+              Congratulations you won!
+            </div>
+            <div class="content-2">
+              <p>You made <span id="clicks"></span> moves </p>
+              <p>in <span id="time"></span> </p>
+            </div>
+            <div class="controlers">
+              <a role="button" class="btn_controle" id="next">Next Level</a role="button">
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+  </html>
